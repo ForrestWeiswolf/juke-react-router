@@ -37,7 +37,8 @@ export default class Main extends Component {
         <HashRouter>
           <div className="col-xs-10">
             <Route path="/" exact={true} component={AllAlbums} />
-            <Route path="/albums" component={AllAlbums} />
+            <Route path="/albums" exact={true} component={AllAlbums} />
+            <Route path="/albums/:albumId" component={SingleAlbum} />
           </div>
         </HashRouter>
         <Player />
