@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Songs from './Songs';
-import AllAlbums from './AllAlbums';
+import Albums from './Albums';
 import {HashRouter, Route} from 'react-router-dom';
 
 
@@ -39,32 +39,29 @@ export default class SingleArtists extends Component {
 
 
 
-        render(){
+    render(){
 
-        const artist = this.state.artist;
-        const albums = this.state.artistAlbums;
-        const songs = this.state.artistSongs;
+    const artist = this.state.artist;
+    const albums = this.state.artistAlbums;
+    const songs = this.state.artistSongs;
 
+        return (
+            <div>
+              <h3>{ artist.name }</h3>
+              <ul className="nav nav-tabs">
+                <li><Link to={`/artists/${artist.id}/albums`}>ALBUMS</Link></li>
+                <li><Link to={`/artists/${artist.id}/songs`}>SONGS</Link></li>
+              </ul>
 
-            return (
+              <HashRouter>
                 <div>
-                  <h3>{ artist.name }</h3>
-                  <ul className="nav nav-tabs">
-                    <li><Link to={`/artists/${artist.id}/albums`}>ALBUMS</Link></li>
-                    <li><Link to={`/artists/${artist.id}/songs`}>SONGS</Link></li>
-                  </ul>
-
-                  <HashRouter>
-                    <div>
-                    <Route path="/artists/:artistId/albums" render={() => <AllAlbums albums={albums} />} />
-                    <Route path="/artists/:artistId/songs" render={() => <Songs songs={songs} />} />
-                    </div>
-                  </HashRouter>
-
+                <Route path="/artists/:artistId/albums" render={() => <Albums albums={albums} />} />
+                <Route path="/artists/:artistId/songs" render={() => <Songs songs={songs} />} />
                 </div>
-            )
-        } //render
+              </HashRouter>
 
-
+            </div>
+        )
+    } //render
 
 } //component

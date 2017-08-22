@@ -7966,99 +7966,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(38);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var AllAlbums = function (_Component) {
-  _inherits(AllAlbums, _Component);
-
-  function AllAlbums() {
-    _classCallCheck(this, AllAlbums);
-
-    return _possibleConstructorReturn(this, (AllAlbums.__proto__ || Object.getPrototypeOf(AllAlbums)).apply(this, arguments));
-  }
-
-  _createClass(AllAlbums, [{
-    key: 'render',
-    value: function render() {
-      // console.log(this.props)
-      // const selectAlbum = this.props.selectAlbum;
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h3',
-          null,
-          'Albums'
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          this.props.albums.map(function (album) {
-            return _react2.default.createElement(
-              'div',
-              { className: 'col-xs-4', key: album.id },
-              _react2.default.createElement(
-                _reactRouterDom.Link,
-                { className: 'thumbnail', to: 'albums/' + album.id },
-                _react2.default.createElement('img', { src: album.imageUrl }),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'caption' },
-                  _react2.default.createElement(
-                    'h5',
-                    null,
-                    _react2.default.createElement(
-                      'span',
-                      null,
-                      album.name
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'small',
-                    null,
-                    album.songs.length,
-                    ' songs'
-                  )
-                )
-              )
-            );
-          })
-        )
-      );
-    }
-  }]);
-
-  return AllAlbums;
-}(_react.Component);
-
-exports.default = AllAlbums;
-
-/***/ }),
+/* 69 */,
 /* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8085,9 +7993,9 @@ var _Songs = __webpack_require__(129);
 
 var _Songs2 = _interopRequireDefault(_Songs);
 
-var _AllAlbums = __webpack_require__(69);
+var _Albums = __webpack_require__(258);
 
-var _AllAlbums2 = _interopRequireDefault(_AllAlbums);
+var _Albums2 = _interopRequireDefault(_Albums);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8177,7 +8085,7 @@ var SingleArtists = function (_Component) {
                         'div',
                         null,
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/artists/:artistId/albums', render: function render() {
-                                return _react2.default.createElement(_AllAlbums2.default, { albums: albums });
+                                return _react2.default.createElement(_Albums2.default, { albums: albums });
                             } }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/artists/:artistId/songs', render: function render() {
                                 return _react2.default.createElement(_Songs2.default, { songs: songs });
@@ -8186,7 +8094,6 @@ var SingleArtists = function (_Component) {
                 )
             );
         } //render
-
 
     }]);
 
@@ -12201,10 +12108,6 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AllAlbums = __webpack_require__(69);
-
-var _AllAlbums2 = _interopRequireDefault(_AllAlbums);
-
 var _SingleAlbum = __webpack_require__(128);
 
 var _SingleAlbum2 = _interopRequireDefault(_SingleAlbum);
@@ -13538,9 +13441,9 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AllAlbums = __webpack_require__(69);
+var _Albums = __webpack_require__(258);
 
-var _AllAlbums2 = _interopRequireDefault(_AllAlbums);
+var _Albums2 = _interopRequireDefault(_Albums);
 
 var _axios = __webpack_require__(40);
 
@@ -13582,7 +13485,7 @@ var StatefulAlbums = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(_AllAlbums2.default, { albums: this.state.albums });
+            return _react2.default.createElement(_Albums2.default, { albums: this.state.albums });
         }
     }]);
 
@@ -28030,6 +27933,99 @@ var valueEqual = function valueEqual(a, b) {
 };
 
 exports.default = valueEqual;
+
+/***/ }),
+/* 258 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(38);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AllAlbums = function (_Component) {
+  _inherits(AllAlbums, _Component);
+
+  function AllAlbums() {
+    _classCallCheck(this, AllAlbums);
+
+    return _possibleConstructorReturn(this, (AllAlbums.__proto__ || Object.getPrototypeOf(AllAlbums)).apply(this, arguments));
+  }
+
+  _createClass(AllAlbums, [{
+    key: 'render',
+    value: function render() {
+      // console.log(this.props)
+      // const selectAlbum = this.props.selectAlbum;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Albums'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          this.props.albums.map(function (album) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'col-xs-4', key: album.id },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { className: 'thumbnail', to: 'albums/' + album.id },
+                _react2.default.createElement('img', { src: album.imageUrl }),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'caption' },
+                  _react2.default.createElement(
+                    'h5',
+                    null,
+                    _react2.default.createElement(
+                      'span',
+                      null,
+                      album.name
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'small',
+                    null,
+                    album.songs.length,
+                    ' songs'
+                  )
+                )
+              )
+            );
+          })
+        )
+      );
+    }
+  }]);
+
+  return AllAlbums;
+}(_react.Component);
+
+exports.default = AllAlbums;
 
 /***/ })
 /******/ ]);

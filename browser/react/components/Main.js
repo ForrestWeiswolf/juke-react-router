@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AllAlbums from './AllAlbums';
 import SingleAlbum from './SingleAlbum';
 import AllArtists from './AllArtists';
 import SingleArtists from './SingleArtists';
