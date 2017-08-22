@@ -1,4 +1,5 @@
 import React from 'react';
+import SingleArtists from './SingleArtists';
 
 const Songs = (props) => {
 
