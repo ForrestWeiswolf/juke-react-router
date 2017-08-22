@@ -25022,6 +25022,8 @@ var _axios = __webpack_require__(196);
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _reactRouterDom = __webpack_require__(204);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25076,10 +25078,8 @@ var AllAlbums = function (_Component) {
               'div',
               { className: 'col-xs-4', key: album.id },
               _react2.default.createElement(
-                'a',
-                { className: 'thumbnail', href: '#', onClick: function onClick() {
-                    return selectAlbum(album.id);
-                  } },
+                _reactRouterDom.Link,
+                { className: 'thumbnail', to: 'albums/' + album.id },
                 _react2.default.createElement('img', { src: album.imageUrl }),
                 _react2.default.createElement(
                   'div',
