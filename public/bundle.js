@@ -11975,25 +11975,25 @@ var Main = function (_Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { id: 'main', className: 'container-fluid' },
+        _reactRouterDom.HashRouter,
+        null,
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-2' },
-          _react2.default.createElement(_Sidebar2.default, { deselectAlbum: this.deselectAlbum })
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.HashRouter,
-          null,
+          { id: 'main', className: 'container-fluid' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-2' },
+            _react2.default.createElement(_Sidebar2.default, null)
+          ),
           _react2.default.createElement(
             'div',
             { className: 'col-xs-10' },
             _react2.default.createElement(_reactRouterDom.Route, { path: '/', exact: true, component: _AllAlbums2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/albums', exact: true, component: _AllAlbums2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/albums/:albumId', component: _SingleAlbum2.default })
-          )
-        ),
-        _react2.default.createElement(_Player2.default, null)
+          ),
+          _react2.default.createElement(_Player2.default, null)
+        )
       );
     }
   }]);
@@ -13034,26 +13034,25 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(230);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Sidebar = function Sidebar(props) {
-
-  var deselectAlbum = props.deselectAlbum;
-
   return _react2.default.createElement(
-    "sidebar",
+    'sidebar',
     null,
-    _react2.default.createElement("img", { src: "juke.svg", className: "logo" }),
+    _react2.default.createElement('img', { src: 'juke.svg', className: 'logo' }),
     _react2.default.createElement(
-      "section",
+      'section',
       null,
       _react2.default.createElement(
-        "h4",
-        { className: "menu-item active" },
+        'h4',
+        { className: 'menu-item active' },
         _react2.default.createElement(
-          "a",
-          { href: "#", onClick: deselectAlbum },
-          "ALBUMS"
+          _reactRouterDom.Link,
+          { to: '/albums' },
+          'ALBUMS'
         )
       )
     )
