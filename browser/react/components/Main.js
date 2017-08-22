@@ -9,23 +9,6 @@ export default class Main extends Component {
 
   constructor (props) {
     super(props);
-    this.state = {
-      selectedAlbum: {}
-    };
-    this.selectAlbum = this.selectAlbum.bind(this);
-    this.deselectAlbum = this.deselectAlbum.bind(this);
-  }
-
-  selectAlbum (albumId) {
-    axios.get(`/api/albums/${albumId}`)
-      .then(res => res.data)
-      .then(album => this.setState({
-        selectedAlbum: album
-      }));
-  }
-
-  deselectAlbum () {
-    this.setState({ selectedAlbum: {}});
   }
 
   render () {
